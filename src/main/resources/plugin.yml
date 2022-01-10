@@ -1,0 +1,8 @@
+name: Adventures
+version: ${project.version}
+main: ru.adventures.adventures.Adventures
+api-version: 1.17
+prefix: adventures
+authors: [ aracle, WhiteDove ]
+description: API for adventures - minecraft server
+website: www.adventures-server,ru
