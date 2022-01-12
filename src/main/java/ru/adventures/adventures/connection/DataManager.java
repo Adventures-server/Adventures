@@ -1,5 +1,7 @@
 package ru.adventures.adventures.connection;
 
+import ru.adventures.adventures.operations.Logger;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,20 +22,6 @@ public abstract class DataManager {
         connection.close();
     }
 
-    public ResultSet query(String query) {
-        ResultSet result = null;
-        try {
-            if (connection() != null) {
-                connection = connection();
-                result = connection.prepareStatement(query).executeQuery();
-            }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-        return result;
-    }
-
     public ResultSet select(String query) {
         ResultSet result = null;
         try {
@@ -42,7 +30,7 @@ public abstract class DataManager {
                 result = connection.prepareStatement(query).executeQuery();
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            Logger.error(throwables.getMessage());
         }
 
         return result;
