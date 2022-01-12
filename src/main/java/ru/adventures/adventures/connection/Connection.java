@@ -35,7 +35,7 @@ public class Connection extends DataManager {
     }
 
     @Override
-    public java.sql.Connection get() throws SQLException {
+    public java.sql.Connection connection() throws SQLException {
         if (connection == null || connection.isClosed()) {
             connection = dataSource.getConnection();
         }

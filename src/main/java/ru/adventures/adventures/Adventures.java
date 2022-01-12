@@ -14,7 +14,7 @@ public final class Adventures extends JavaPlugin {
         return instance;
     }
 
-    public static DataManager data;
+    public static DataManager connection;
 
     @Override
     public void onEnable() {
@@ -22,7 +22,7 @@ public final class Adventures extends JavaPlugin {
         Configurations.setup();
         String mode = SettingsConfiguration.string("Mode");
         if (mode.equals("production") || mode.equals("development")) {
-            data = new Connection();
+            connection = new Connection();
         }
     }
 

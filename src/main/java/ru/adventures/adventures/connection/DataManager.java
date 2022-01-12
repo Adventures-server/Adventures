@@ -12,37 +12,44 @@ public abstract class DataManager {
         this.connection = null;
     }
 
-    public Connection get() throws SQLException {
+    public Connection connection() throws SQLException {
         return connection;
-    }
-
-    private boolean check() throws SQLException {
-        return connection != null && !connection.isClosed();
     }
 
     public void close() throws SQLException {
         connection.close();
     }
 
-    public ResultSet query(String query) throws SQLException {
-        if (!check()) connection = get();
+    public ResultSet query(String query) {
+        ResultSet result = null;
+        try {
+            if (connection() != null) {
+                connection = connection();
+                result = connection.prepareStatement(query).executeQuery();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
-        PreparedStatement statement = connection.prepareStatement(query);
-
-        return statement.executeQuery();
+        return result;
     }
 
-    public void query(String query, SQLConsumer<ResultSet> consumer) throws SQLException {
-        ResultSet resultSet = query(query);
+    public ResultSet select(String query) {
+        ResultSet result = null;
+        try {
+            if (connection() != null) {
+                connection = connection();
+                result = connection.prepareStatement(query).executeQuery();
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
 
-        consumer.accept(resultSet);
-
-        resultSet.close();
-        resultSet.getStatement().close();
+        return result;
     }
 
     public int update(String update) throws SQLException {
-        if (!check()) connection = get();
+        if (connection() != null) connection = connection();
 
         PreparedStatement statement = connection.prepareStatement(update);
         int resultCode = statement.executeUpdate();
