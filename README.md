@@ -2,6 +2,30 @@
 
 API для разработки на [adventures - minecraft сервер](https://www.adventures-server.ru)
 
+## Создание запросов в базу данных
+
+### SELECT запросы в базу данных:
+Получить содержимое колонн из указанной таблици. Пример condition: player='steve'
+```java
+Adventures.connection.query("SELECT column, column FROM table WHERE condition"); //возвращает ResultSet
+```
+#### Работа с результатом запроса SELECT (ResultSet):
+```java
+        String name; //Назначение переменной "имя"
+        int age; //Назначение переменной "возраст"
+        ResultSet result = Adventures.connection.query("SELECT name, age FROM player_data WHERE player='steve'"); //Создание запроса
+        try {
+            while (result.next()) {
+                name = result.getString("name"); //Запись данных с таблицы в переменную
+                age = result.getInt("age"); //Запись данных с таблицы в переменную
+            }
+        } catch (SQLException throwables) {
+            Logger.error(throwables.getMessage()); //Вывод сообщения об ошибке при неправильном запросе
+        }
+```
+
+
+
 ## Конфигурация settings.yml
 
 ### Информация о статусе api
