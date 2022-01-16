@@ -33,17 +33,17 @@ Adventures.connection.query("SELECT column, column FROM table WHERE condition");
 ```
 #### Работа с результатом запроса SELECT (ResultSet):
 ```java
-        String name; //Назначение переменной "имя"
-        int age; //Назначение переменной "возраст"
-        ResultSet result = Adventures.connection.query("SELECT name, age FROM player_data WHERE player='steve'"); //Создание запроса
-        try {
-            while (result.next()) {
-                name = result.getString("name"); //Запись данных с таблицы в переменную
-                age = result.getInt("age"); //Запись данных с таблицы в переменную
-            }
-        } catch (SQLException throwables) {
-            Logger.error(throwables.getMessage()); //Вывод сообщения об ошибке при неправильном запросе
-        }
+String name; //Назначение переменной "имя"
+int age; //Назначение переменной "возраст"
+ResultSet result = Adventures.connection.query("SELECT name, age FROM player_data WHERE player='steve'"); //Создание запроса
+try {
+    while (result.next()) {
+    name = result.getString("name"); //Запись данных с таблицы в переменную
+    age = result.getInt("age"); //Запись данных с таблицы в переменную
+    }
+} catch (SQLException throwables) {
+    Logger.error(throwables.getMessage()); //Вывод сообщения об ошибке при неправильном запросе
+}
 ```
 
 
