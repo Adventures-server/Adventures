@@ -2,6 +2,28 @@
 
 API для разработки на [adventures - minecraft сервер](https://www.adventures-server.ru)
 
+##Добавление API в maven зависимость
+### Репозиторий для pom.xml
+```xml
+<repository>
+    <id>Adventures-mvn-repo</id>
+    <url>https://raw.github.com/adventures-server/Adventures/mvn-repo/</url>
+    <snapshots>
+    <enabled>true</enabled>
+    <updatePolicy>always</updatePolicy>
+    </snapshots>
+</repository>
+```
+### Зависимость для pom.xml
+```xml
+<dependency>
+    <groupId>ru.adventures</groupId>
+    <artifactId>adventures</artifactId>
+    <version>1.0</version>
+    <scope>provided</scope>
+</dependency>
+```
+
 ## Создание запросов в базу данных
 
 ### SELECT запросы в базу данных:
