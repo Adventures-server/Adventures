@@ -1,6 +1,6 @@
 # Adventures
 
-API для разработки на [adventures - minecraft сервер](https://www.adventures-server.ru)
+API для разработки на [Adventures - minecraft сервер](https://www.adventures-server.ru)
 
 ##Добавление API в maven зависимость
 ### Репозиторий для pom.xml
