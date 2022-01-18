@@ -36,14 +36,18 @@ public abstract class DataManager {
         return result;
     }
 
-    public int update(String update) throws SQLException {
-        if (connection() != null) connection = connection();
+    public int update(String update) {
+        int result = 0;
+        try {
+            if (connection() != null) connection = connection();
 
-        PreparedStatement statement = connection.prepareStatement(update);
-        int resultCode = statement.executeUpdate();
+            PreparedStatement statement = connection.prepareStatement(update);
+            result = statement.executeUpdate();
 
-        statement.close();
-
-        return resultCode;
+            statement.close();
+        } catch (SQLException throwables) {
+            Logger.error(throwables.getMessage());
+        }
+        return result;
     }
 }

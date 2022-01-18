@@ -2,7 +2,7 @@ package ru.adventures.adventures.connection;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import ru.adventures.adventures.operations.SettingsConfiguration;
+import ru.adventures.adventures.operations.Configuration;
 
 import java.sql.SQLException;
 
@@ -43,51 +43,51 @@ public class Connection extends DataManager {
     }
 
     public static String address() {
-        return SettingsConfiguration.string("Connection.address");
+        return Configuration.string("Connection.address");
     }
 
     public static String port() {
-        return SettingsConfiguration.string("Connection.port");
+        return Configuration.string("Connection.port");
     }
 
     public static String database() {
-        return SettingsConfiguration.string("Connection.database");
+        return Configuration.string("Connection.database");
     }
 
     public static String username() {
-        return SettingsConfiguration.string("Connection.username");
+        return Configuration.string("Connection.username");
     }
 
     public static String password() {
-        return SettingsConfiguration.string("Connection.password");
+        return Configuration.string("Connection.password");
     }
 
     public static String ssl() {
-        return SettingsConfiguration.string("Connection.ssl");
+        return Configuration.string("Connection.ssl");
     }
 
     public static Integer minimumIdle() {
-        return SettingsConfiguration.integer("Connection.minimumIdle");
+        return Configuration.integer("Connection.minimumIdle");
     }
 
     public static Integer maximumPoolSize() {
-        return SettingsConfiguration.integer("Connection.maximumPoolSize");
+        return Configuration.integer("Connection.maximumPoolSize");
     }
 
     public static Integer connectionTimeout() {
-        return SettingsConfiguration.integer("Connection.connectionTimeout");
+        return Configuration.integer("Connection.connectionTimeout");
     }
 
     public static String id() {
-        return SettingsConfiguration.integer("api-id").toString();
+        return Configuration.integer("api-id").toString();
     }
 
     public static String server() {
-        return SettingsConfiguration.string("Server");
+        return Configuration.string("Server");
     }
 
     public static String mode() {
-        return SettingsConfiguration.string("Mode");
+        return Configuration.string("Mode");
     }
 
 }
