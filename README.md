@@ -50,7 +50,34 @@ try {
     Logger.error(throwables.getMessage()); //Вывод сообщения об ошибке при неправильном запросе
 }
 ```
+## Работа с сериалайзерами компонентов
+#### Для удобства работы с текстовыи компонентами были сделаны сокращенные методы
+#### Из Component в Legacy String:
+```java
+String something = Components.LegacyString(component); //TextComponent component = Component.text("Привет");
+```
+#### Из Component в Gson String:
+```java
+String something = Components.GsonString(component); //TextComponent component = Component.text("Привет");
+```
+#### Из Component в Plain String:
+```java
+String something = Components.GsonString(component); //TextComponent component = Component.text("Привет");
+```
+#### Из Legacy String в Component:
+```java
+TextComponent something = Components.LegacyComponent("Привет");
+```
+#### Из Gson String в Component:
+```java
+TextComponent something = Components.GsonComponent("Привет");
+```
+#### Из Plain String в Component:
+```java
+TextComponent something = Components.PlainComponent("Привет");
+```
 
+### UPDATE запросы в базу данных:
 
 
 ## Конфигурация settings.yml
